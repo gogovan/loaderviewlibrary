@@ -40,7 +40,9 @@
                 android:textStyle="bold"
                 app:height_weight="0.8"
                 app:use_gradient="true"
-                app:width_weight="0.6" />
+                app:width_weight="0.6"
+                app:use_fadeout="false"
+                />
 
             <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/txt_title"

@@ -50,6 +50,7 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
         loaderController.setWidthWeight(typedArray.getFloat(R.styleable.loader_view_width_weight, LoaderConstant.MAX_WEIGHT));
         loaderController.setHeightWeight(typedArray.getFloat(R.styleable.loader_view_height_weight, LoaderConstant.MAX_WEIGHT));
         loaderController.setUseGradient(typedArray.getBoolean(R.styleable.loader_view_use_gradient, LoaderConstant.USE_GRADIENT_DEFAULT));
+        loaderController.setUseFadeout(typedArray.getBoolean(R.styleable.loader_view_use_fadeout, LoaderConstant.USE_FADEOUT));
         typedArray.recycle();
     }
 

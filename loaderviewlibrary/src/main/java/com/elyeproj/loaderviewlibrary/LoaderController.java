@@ -34,6 +34,7 @@ class LoaderController {
     private float widthWeight = LoaderConstant.MAX_WEIGHT;
     private float heightWeight = LoaderConstant.MAX_WEIGHT;
     private boolean useGradient = LoaderConstant.USE_GRADIENT_DEFAULT;
+    private boolean useFadeout = LoaderConstant.USE_FADEOUT;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
     private final static int ANIMATION_CYCLE_DURATION = 750; //milis
@@ -99,6 +100,10 @@ class LoaderController {
         this.useGradient = useGradient;
     }
 
+    public void setUseFadeout(boolean useFadeout) {
+        this.useFadeout = useFadeout;
+    }
+
     private float validateWeight(float weight) {
         if (weight > LoaderConstant.MAX_WEIGHT)
             return LoaderConstant.MAX_WEIGHT;
@@ -109,8 +114,12 @@ class LoaderController {
 
     public void stopLoading() {
         valueAnimator.cancel();
-        setValueAnimator(progress, 0, 0);
-        valueAnimator.start();
+        if (useFadeout) {
+            setValueAnimator(progress, 0, 0);
+            valueAnimator.start();
+        } else {
+            progress = 0f;
+        }
     }
 
     private void setValueAnimator(float begin, float end, int repeatCount) {
